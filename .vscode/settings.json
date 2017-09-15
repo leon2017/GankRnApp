@@ -1,0 +1,4 @@
+{
+     // 控制打开的编辑器是否显示为预览。预览编辑器可以重新使用，直到将其保留(例如，双击或编辑)。
+  "workbench.editor.enablePreview": false
+}

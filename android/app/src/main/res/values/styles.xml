@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="actionMenuTextColor">#fcfcfc</item>
+        <item name="android:actionMenuTextAppearance">@style/GankMenuTextStyle</item>
+        <item name="actionMenuTextAppearance">@style/GankMenuTextStyle</item>
+        <item name="android:windowBackground">@mipmap/splash</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="GankMenuTextStyle">
+        <item name="android:textColor">#fcfcfc</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+</resources>
