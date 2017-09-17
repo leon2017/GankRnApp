@@ -23,6 +23,6 @@ const getCategoryUrl = (category, page) => {
   }
 };
 
-export default {
+export {
   getCategoryUrl
 };

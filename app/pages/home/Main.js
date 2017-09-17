@@ -6,9 +6,8 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
+import HomeFlatList from '../../components/HomeFlatList';
 import { colors } from '../../res/styles/common';
-
-const pages = [];
 
 class Main extends Component {
   static navigationOptions = {
@@ -28,8 +27,7 @@ class Main extends Component {
         { key: '福利', value: '福利' },
         { key: '休息视频', value: '休息视频' },
         { key: '拓展资源', value: '拓展资源' }
-      ],
-      categoryList: {}
+      ]
     };
   }
 
@@ -37,7 +35,7 @@ class Main extends Component {
     const container = this.state.categoryIds.map((category) => {
       const categoryView = (
         <View key={category.key} tabLabel={category.value} style={Styles.main}>
-          <Text>{category.value}</Text>
+          <HomeFlatList category={category.key} />
         </View>
       );
       return categoryView;

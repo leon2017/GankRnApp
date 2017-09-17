@@ -7,6 +7,7 @@ const colors = {
   tintColor: '#00ADB5',
   textColor: '#00ADB5',
   white: '#fff',
+  black: '#000000',
   backgroundColor: '#FAFAFA'
 };
 
