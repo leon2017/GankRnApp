@@ -4,6 +4,7 @@ import Splash from '../pages/Splash';
 import Main from '../pages/home/Main';
 import Meizhi from '../pages/meizhi/Meizhi';
 import Other from '../pages/other/Other';
+import WebViwPage from '../pages/WebViewPage';
 
 const TabContainer = TabNavigator(
   {
@@ -39,7 +40,8 @@ const App = StackNavigator(
       navigationOptions: {
         headerLeft: null
       }
-    }
+    },
+    Web: { screen: WebViwPage }
   },
   {
     headerMode: 'screen',

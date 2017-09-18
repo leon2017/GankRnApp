@@ -16,6 +16,18 @@ import { colors } from '../res/styles/common';
 import ToastUtil from '../utils/ToastUtil';
 
 class HomeListItem extends Component {
+  constructor(props) {
+    super(props);
+    this.handlePress = this.handlePress.bind(this);
+  }
+
+  handlePress() {
+    const { navigate } = this.props.navigation;
+    const detail = this.props.itemData;
+    navigate('Web', detail);
+    // ToastUtil.show('我被点击了');
+    // this.props.navigation.navigate('Web');
+  }
   renderImage(imgUrl) {
     try {
       const tempUrl = imgUrl.images[0];
@@ -30,7 +42,7 @@ class HomeListItem extends Component {
   render() {
     const tempData = this.props.itemData;
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={this.handlePress}>
         <View style={styles.container}>
           {this.renderImage(tempData)}
           <View style={styles.itemRightContainer}>
