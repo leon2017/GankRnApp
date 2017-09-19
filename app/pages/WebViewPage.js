@@ -8,46 +8,92 @@ import React, { Component } from 'react';
 import {
   WebView,
   StyleSheet,
+  InteractionManager,
   View
 } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+import store from 'react-native-simple-store';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LoadingView from '../components/LoadingView';
 import { colors } from '../res/styles/common';
 
 class WebViewPage extends Component {
-    static navigationOptions = ({ navigation }) => ({
-      title: navigation.state.params.detail.desc,
-      tabBarIcon: ({ tintColor }) =>
-        <Icon name="md-grid" size={25} color={tintColor} />
-    })
-    renderLoading() {
-      return <LoadingView />;
-    }
+  static navigationOptions = ({ navigation }) => ({
+    title: navigation.state.params ? navigation.state.params.headerTitle : 'やばいな〜〜〜'
+  });
+  constructor(props) {
+    super(props);
+    this.state = {
+      webDetail: {},
+      detailTitle: 'ちょっとまって。。。'
+    };
+  }
 
-    render() {
-      const { params } = this.props.navigation.state;
-      return (
-        <View style={{ flex: 1 }}>
-          <WebView
-            style={styles.container}
-            ref="webview"
-            source={{ uri: params.detail.url }}
-            javaScriptEnabled
-            domStorageEnabled
-            startInLoadingState
-            scalesPageToFit
-            decelerationRate="normal"
-            onShouldStartLoadWithRequest={() => {
-              const shouldStartLoad = true;
-              return shouldStartLoad;
-            }}
-            onNavigationStateChange={this.onNavigationStateChange}
-            renderLoading={this.renderLoading}
-          />
-        </View>
-      );
-    }
+  componentDidMount() {
+    InteractionManager.runAfterInteractions(() => {
+      store.get('webDetail').then((webDetail) => {
+        this.setState({
+          webDetail,
+          detailTitle: this.state.webDetail.desc
+        }, () => {
+          // 通过在componentDidMount里面设置setParams将title的值动态修改
+          this.props.navigation.setParams({
+            headerTitle: this.state.webDetail.desc,
+          });
+        });
+      });
+    });
+  }
+
+  renderLoading() {
+    return <LoadingView />;
+  }
+
+  render() {
+    const deatilData = this.state.webDetail;
+    return (
+      <View style={{ flex: 1 }}>
+        <WebView
+          style={styles.container}
+          ref="webview"
+          source={{ uri: deatilData.url }}
+          javaScriptEnabled
+          domStorageEnabled
+          startInLoadingState
+          scalesPageToFit
+          decelerationRate="normal"
+          onShouldStartLoadWithRequest={() => {
+            const shouldStartLoad = true;
+            return shouldStartLoad;
+          }}
+          onNavigationStateChange={this.onNavigationStateChange}
+          renderLoading={this.renderLoading}
+        />
+      </View>
+    );
+  }
 }
+
+const WebPage = StackNavigator(
+  {
+    WebViewPage: { screen: WebViewPage },
+  },
+  {
+    animationEnabled: false,
+    headerMode: 'screen',
+    navigationOptions: {
+      headerLeft: null,
+      headerStyle: {
+        backgroundColor: colors.colorPrimary,
+      },
+      headerTitleStyle: {
+        color: colors.white,
+        fontSize: 20
+      },
+      headerTintColor: colors.white
+    }
+  }
+);
 
 
 const styles = StyleSheet.create({
@@ -57,4 +103,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default WebViewPage;
+export default WebPage;

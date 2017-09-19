@@ -11,6 +11,8 @@ import {
   View,
   TouchableOpacity
 } from 'react-native';
+import store from 'react-native-simple-store';
+import { Actions } from 'react-native-router-flux';
 import DateUtil from '../utils/DateUtil';
 import { colors } from '../res/styles/common';
 import ToastUtil from '../utils/ToastUtil';
@@ -22,11 +24,12 @@ class HomeListItem extends Component {
   }
 
   handlePress() {
-    const { navigate } = this.props.navigation;
+    // const { navigate } = this.props.navigation;
     const detail = this.props.itemData;
-    navigate('Web', detail);
+    // navigate('Web', detail);
     // ToastUtil.show('我被点击了');
-    // this.props.navigation.navigate('Web');
+    store.save('webDetail', detail);
+    Actions.webview();
   }
   renderImage(imgUrl) {
     try {
