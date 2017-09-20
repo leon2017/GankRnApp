@@ -23,6 +23,15 @@ const getCategoryUrl = (category, page) => {
   }
 };
 
+const getMeizhiUrl = () => {
+  try {
+    return `${CATEGORY_URL}福利/30/1`;
+  } catch (error) {
+    return 'request url exception';
+  }
+};
+
 export {
-  getCategoryUrl
+  getCategoryUrl,
+  getMeizhiUrl
 };

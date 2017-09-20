@@ -3,6 +3,7 @@ package com.gankrnapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.RNFetchBlob.RNFetchBlobPackage;
 import com.theweflex.react.WeChatPackage;
 import com.richardcao.exceptionsmanager.react.ExceptionsManager;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
@@ -34,11 +35,12 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNFetchBlobPackage(),
             new WeChatPackage(),
             new ExceptionsManager(),
             new RNDeviceInfo(),
-            new CodePush(null, getApplicationContext(), BuildConfig.DEBUG)
-        , new VectorIconsPackage()
+            new CodePush(null, getApplicationContext(), BuildConfig.DEBUG),
+            new VectorIconsPackage()
       );
     }
   };

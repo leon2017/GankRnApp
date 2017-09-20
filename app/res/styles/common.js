@@ -8,7 +8,8 @@ const colors = {
   textColor: '#00ADB5',
   white: '#fff',
   black: '#000000',
-  backgroundColor: '#FAFAFA'
+  backgroundColor: '#FAFAFA',
+  blackAlpha50: '#80000000'
 };
 
 const window = Dimensions.get('window');

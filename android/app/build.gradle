@@ -138,6 +138,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-fetch-blob')
     compile project(':react-native-wechat')
     compile project(':react-native-exceptions-manager')
     compile project(':react-native-device-info')
