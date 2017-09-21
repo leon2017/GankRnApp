@@ -3,7 +3,7 @@
 
 [TCP]
 
-> 其实RN开发早就很火了，并且已经成为很多项目的成熟解决方案。前段时间看到了一个开发的新闻资讯类的App-[Reading](https://github.com/attentiveness/reading),感觉真棒，想着如果自己用RN写一个会不会更有趣，毕竟这是自己第一次尝试用RN开发；当然作为从0开发的，很多思路都是借鉴这位大神的，感谢！！！。
+> 其实RN开发早就很火了，并且已经成为很多项目的成熟解决方案。前段时间看到了某大神开发的一个新闻资讯类的App-[Reading](https://github.com/attentiveness/reading),感觉真棒，想着如果自己用RN写一个会不会更有趣，毕竟这是自己第一次尝试用RN开发；当然作为从0开发的，很多思路都是借鉴这位大神的，感谢！！！。
 ### 搭建开发环境
 - React Native版本为0.48
 - 前期目标平台：Android,开发平台macOS,IDE:vs code
