@@ -3,6 +3,7 @@ package com.gankrnapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.airbnb.android.react.lottie.LottiePackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.theweflex.react.WeChatPackage;
 import com.richardcao.exceptionsmanager.react.ExceptionsManager;
@@ -35,6 +36,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new LottiePackage(),
             new RNFetchBlobPackage(),
             new WeChatPackage(),
             new ExceptionsManager(),
